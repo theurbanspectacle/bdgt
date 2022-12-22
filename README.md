@@ -21,9 +21,12 @@ TBA
 
 ## Credits
 
-Amanda Pietsch
+Amanda Pietsch's and Cream
+
 Bryan Smith
+
 Justin Bong
+
 Genesis (Oliver Gregorio)
 
 ## License
