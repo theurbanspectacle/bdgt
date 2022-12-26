@@ -30,17 +30,13 @@ GET and POST routes for retrieving and adding new data
 
 ## Credits
 
-Amanda Pietsch's and Cream
+[Amanda Pietsch's and Cream](https://github.com/apietsch4117)
 
-Bryan Smith
+[Bryan Smith](https://github.com/smitbry17)
 
-Justin Bong
+[Justin Bong]
 
-Genesis (Oliver Gregorio)
-
-## License
-
-TBD
+[Genesis (Oliver) Gregorio](https://github.com/theurbanspectacle)
 
 ## Badges
 
