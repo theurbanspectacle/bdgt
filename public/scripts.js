@@ -1,4 +1,4 @@
-// Loading
+// Loading screen function.
 $(document).ready(function(){
     $('.modal-trigger').leanModal();
   });

@@ -13,11 +13,20 @@ GET and POST routes for retrieving and adding new data
 
 ## Installation
 
-TBD
+- `npm install`
+- `npm run init:database`
+- Create `.env` file using the `example.env` file for reference.
 
 ## Usage
 
-TBA
+### Developers
+
+- Start a live reload server with `npm run watch`
+- Run unit test with `npm run test`
+
+### Production
+
+- Start production server with `npm run start`
 
 ## Credits
 
@@ -44,5 +53,4 @@ TBD
 
 ## Tests
 
-Go the extra mile and write tests for your application. Then provide examples on how to run them here.
-TBD
+- Unit tests should be placed in the `__tests__` folder you can run them via `npm run test`
