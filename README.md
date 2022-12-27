@@ -34,7 +34,7 @@ GET and POST routes for retrieving and adding new data
 
 [Bryan Smith](https://github.com/smitbry17)
 
-[Justin Bong]
+[Justin Bong](https://github.com/justinhwbhang)
 
 [Genesis (Oliver) Gregorio](https://github.com/theurbanspectacle)
 
