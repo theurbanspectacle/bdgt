@@ -1,6 +1,7 @@
 const router = require('express').Router();
-
+const userRoutes = require('./userRoutes');
 //TODO: For Back-End Add API Routes! 
+router.use('/user', userRoutes);
 
 
 //Make sure this is last in the code here.
