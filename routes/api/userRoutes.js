@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const { json } = require("../../config/connection");
-const { User } = require("../../lib/");
+const User = require("../../lib/User");
 
 router.post("/", async (req, res) => {
   console.log("Sign Up Attempt");
@@ -62,3 +62,5 @@ router.post("/logout", (req, res) => {
     res.status(404).end();
   }
 });
+
+module.exports = router;
