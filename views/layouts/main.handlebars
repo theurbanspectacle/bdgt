@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BDGT</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body class="{{#if welcomeAnimation}}welcome{{/if}}">
+  <span id="splash-overlay" class="splash"></span>
+  <span id="welcome" class="z-depth-4"></span>
+
+  <header class="navbar-fixed">
+    <nav class="row teal lighten-2">
+      <div class="col s12">
+        <ul class="right">
+          <li><a href="/">Home</a></li>
+            <li><a href="/about-us">About Us</a></li>
+            <li><a href="/sign-up">Sign Up</a></li>
+            <li><a href="/bdgt">BDGT</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main class="valign-wrapper">
+    <span class="container grey-text text-lighten-1 ">
+      {{{body}}}
+    </span>
+  </main>
+
+  <footer class="page-footer deep-purple darken-3">
+    <div class="footer-copyright deep-purple darken-4">
+      <div class="container">2023&copy; NERD HERD</div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="./scripts.js"></script>
+</body>
+</html>

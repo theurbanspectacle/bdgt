@@ -1,6 +1,7 @@
 const express = require("express");
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
+const handlebars = require('express-handlebars');
 const sequelize = require('./config/connection');
 const routes = require('./routes');
 
@@ -23,6 +24,10 @@ app.use((req, res, next) => {
   res.header('Pragma', 'no-cache');
   next();
 });
+
+const handlebarsEngine = handlebars.create({});
+app.engine('handlebars', handlebarsEngine.engine);
+app.set('view engine', 'handlebars');
 app.use(routes);
 app.use(express.static("public"));
 

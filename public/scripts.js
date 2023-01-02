@@ -10,3 +10,10 @@ function signup()
   .then((response) => response.text())
   .then((data) => console.log(data));
 }
+const signUp = () => {
+  location.href = "/sign-up";
+};
+
+const aboutUs = () => {
+  location.href = "/about-us";
+};

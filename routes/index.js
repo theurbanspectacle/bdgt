@@ -7,19 +7,23 @@ router.use('/api', apiRoutes);
 
 // Send file with temporary until handlebar migration
 router.get('/', (req, res) => {
-  res.sendFile('index.html', { root: path.join(__dirname, '../public') });
+  res.render('home', {layout: 'main', welcomeAnimation: true});
 });
 
 router.get('/about-us', (req, res) => {
-  res.sendFile('index.html', { root: path.join(__dirname, '../public') });
+  res.render('about-us', {layout: 'main'});
 });
 
 router.get('/sign-up', (req, res) => {
-  res.sendFile('index.html', { root: path.join(__dirname, '../public') });
+  res.render('sign-up', {layout: 'main'});
 });
 
-router.get('/budget', (req, res) => {
-  res.sendFile('index.html', { root: path.join(__dirname, '../public') });
+router.get('/bdgt', (req, res) => {
+  res.render('bdgt', {layout: 'main'});
+});
+
+router.get('/login', (req, res) => {
+  res.render('login', {layout: 'main'});
 });
 
 // This is to handle the 404 CSS & JS files should not be handled.
@@ -29,7 +33,7 @@ router.use((req, res, next) => {
     !req.path.includes('.js') 
     ) {
     // Render 404 page here.
-    res.status(404).sendFile('index.html', { root: path.join(__dirname, '../public') });
+    res.status(404).render('404', {layout: 'main'});
   } else {
     next();
   }
