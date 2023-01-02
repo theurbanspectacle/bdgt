@@ -2,7 +2,7 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-    background: #512da8;
+    background: #262626;
     overflow: hidden;
     -webkit-font-smoothing: antialiased;
   }
@@ -24,7 +24,7 @@ body {
   .welcome .splash {
     height: 0px;
     padding: 0px;
-    border: 130em solid #039be5;
+    border: 130em solid #262626;
     position: fixed;
     left: 50%;
     top: 100%;
@@ -37,7 +37,7 @@ body {
   }
   
   .welcome #welcome {
-    background: #311b92 ;
+    background: #958AA6 ;
     width: 56px;
     height: 56px;
     position: absolute;
@@ -107,7 +107,7 @@ body {
   
   @keyframes moveUp {
     0% {
-      background: #311b92;
+      background: #958AA6;
       top: 100%;
     }
     50% {
@@ -115,20 +115,20 @@ body {
     }
     100% {
       top: 50%;
-      background: #039be5;
+      background: #404040;
     }
   }
   
   @keyframes materia {
     0% {
-      background: #039be5;
+      background: #202020;
     }
     50% {
-      background: #039be5;
+      background: #958AA6;
       top: 26px;
     }
     100% {
-      background: #311b92;
+      background: #262626;
       width: 100%;
       height: 64px;
       border-radius: 0px;
