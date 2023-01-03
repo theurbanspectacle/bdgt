@@ -1,1 +1,21 @@
-<h1 class="title grey-text text-lighten-3">Log In</h1>
+<h1 class="title grey-text text-lighten-3">Log In:</h1>
+
+
+<div id="log-in-form" class="row">
+  <div class="row">
+    <div class="input-field col s12">
+      <input id="email" type="email" class="validate" required>
+      <label for="email">Email</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s12">
+      <input id="password" type="password" class="validate" required minlength="5">
+      <label for="password">Password</label>
+    </div>
+  </div>
+  <button class="btn waves-effect waves-light deep-purple lighten-3" type="button" onclick="logInSubmit()">Log In</button>
+</div>
+<div class="row">
+    <a href="/sign-up" class="waves-effect waves-teal deep-purple lighten-3 btn-flat sign-up-btn">No Account? Sign Up</a>
+</div>

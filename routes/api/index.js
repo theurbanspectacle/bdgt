@@ -1,8 +1,8 @@
 const router = require('express').Router();
 const userRoutes = require('./userRoutes');
-//TODO: For Back-End Add API Routes! 
+const bdgtRoutes = require('./bdgtRoutes');
 router.use('/user', userRoutes);
-
+router.use('/bdgt', bdgtRoutes);
 
 //Make sure this is last in the code here.
 router.use((req, res) => {

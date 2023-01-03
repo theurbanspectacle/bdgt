@@ -1,5 +1,4 @@
 const router = require("express").Router();
-const { json } = require("../../config/connection");
 const User = require("../../lib/User");
 
 /**
@@ -92,21 +91,6 @@ router.post("/login", (req, res) => {
   }).catch(error => {
     res.status(401).json({ message: "No user found", error });
   });
-});
-
-/**
- * POST /api/user/logout - Logout and destroy session cookie if exists
- * 
- * Returns 204 (No Content) for all calls.
- */
-router.post("/logout", (req, res) => {
-  if (typeof req.session.destroy === 'function') {
-    req.session.destroy(() => {
-      res.status(204).end();
-    });
-  } else {
-    res.status(204).end();
-  }
 });
 
 module.exports = router;

@@ -23,6 +23,10 @@ body {
     color: white;
   }
 
+  .collection .collection-item {
+    background-color: unset;
+  }
+
   .navbar-fixed {
     min-height: 64px;
     display: block;
@@ -40,6 +44,14 @@ body {
     display: flex;
     flex-direction: column;
   }
+
+.home-page-wrapper {
+  margin-top: calc(50vh - 205px);
+}
+
+blockquote {
+  border-color: #b39ddb;
+}
 
   /* start welcome animation */
   .welcome .splash {
@@ -144,7 +156,7 @@ body {
       background: #202020;
     }
     50% {
-      background: #958AA6;
+      background: #232323;
       top: 26px;
     }
     100% {

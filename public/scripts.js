@@ -8,12 +8,53 @@ $(document).ready(() => {
   }, 5000);
 });
 
-const signUp = () => {
-  location.href = "/sign-up";
+const renderError = (errorText, errorBody) => {
+  M.toast({html: errorText});
+  console.error(errorText, errorBody);
+};
+
+const logIn = () => {
+  location.href = "/login";
+};
+
+const openBdgt = () => {
+  location.href = "/bdgt";
 };
 
 const aboutUs = () => {
   location.href = "/about-us";
+};
+
+const logInSubmit = () => {
+  const email = $('#log-in-form #email').val();
+  const password = $('#log-in-form #password').val();
+
+  if (!email || !password) {
+    renderError('Form is invalid.');
+    return;
+  }
+
+  fetch('/api/user/login', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      email,
+      password
+    }),
+  }).then(response => {
+    console.log(response);
+    if (response.ok) {
+      return response.json();
+    } else {
+      return response.json().then(data => Promise.reject(data));
+    }
+  }).then(() => {
+    location.href = "/bdgt";
+  }).catch((err) => {
+    renderError(`Unable to save${err?.message ? `: ${err.message}` : ''}`, err);
+  });
 };
 
 const signUpSubmit = () => {
@@ -23,14 +64,13 @@ const signUpSubmit = () => {
   const password = $('#sign-up-form #password').val();
 
   if (!first_name || !last_name || !email || !password) {
-    //TODO: Show user that it's not done.
+    renderError('Form is invalid');
     return;
   }
-
-  const handleError = (err) => {
-    console.log('Sign up submit button failed.', err);
-    // TODO: Show user that it failed.
-  };
+  if (password.length < 5) {
+    renderError('Password must be more than 5 characters.');
+    return;
+  }
 
   fetch('/api/user', {
     method: 'POST',
@@ -43,13 +83,15 @@ const signUpSubmit = () => {
       email,
       password
     }),
-  }).then(response => response.json()).then((response) => {
+  }).then(response => {
     if (response.ok) {
-      location.href = "/bdgt";
+      return response.json();
     } else {
-      handleError(response);
+      return response.json().then(data => Promise.reject(data));
     }
+  }).then(() => {
+    location.href = "/bdgt";
   }).catch((err) => {
-    handleError(err);
+    renderError(`Unable to save${err?.message ? `: ${err.message}` : ''}`, err);
   });
 };

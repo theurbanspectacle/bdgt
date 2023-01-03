@@ -1,9 +1,13 @@
-const withAuth = (req, res, next) => {
+const withAuthCallback = (req, res, callback) => {
   if (!req.session.user) {
-    res.redirect("/login");
+    res.status(403).redirect("/login");
   } else {
-    next();
+    callback();
   }
 };
 
-module.exports = {withAuth};
+const withAuth = (req, res, next) => {
+  withAuthCallback(req, res, next);
+};
+
+module.exports = {withAuth, withAuthCallback};
