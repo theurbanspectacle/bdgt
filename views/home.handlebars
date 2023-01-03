@@ -1,12 +1,20 @@
-<p class="flow-text">Welcome to</p>
-<h1 class="title grey-text text-lighten-3">BDGT</h1>
-<blockquote class="flow-text">A budgeting app to help you make responsible financial decisions.</blockquote>
-<div class="center-align">
-    <button onclick="signUp()" class="btn waves-effect waves-light deep-purple lighten-3" type="button">Sign Up
-    <i class="material-icons right"></i>
-    </button>
-
-    <button class="btn waves-effect waves-light deep-purple lighten-3" onclick="aboutUs()"type="button">About Us
-    <i class="material-icons right"></i>
-    </button>
+<div class="home-page-wrapper">
+    <p class="flow-text">Welcome to</p>
+    <h1 class="title grey-text text-lighten-3">BDGT</h1>
+    <blockquote class="flow-text ">A budgeting app to help you make responsible financial decisions.</blockquote>
+    <div class="center-align">
+        {{#if notLoggedIn}}
+        <button onclick="logIn()" class="btn waves-effect waves-light deep-purple lighten-3" type="button">Log In
+        <i class="material-icons right">account_circle</i>
+        </button>
+        {{else}}
+        <button onclick="openBdgt()" class="btn waves-effect waves-light deep-purple lighten-3" type="button">Start your BDGT
+        <i class="material-icons right">account_tree</i>
+        </button>
+        {{/if}}
+        
+        <button class="btn waves-effect waves-light deep-purple lighten-3" onclick="aboutUs()"type="button">About Us
+        <i class="material-icons right">diversity_1</i>
+        </button>
+    </div>
 </div>
