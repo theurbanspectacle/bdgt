@@ -1,6 +1,7 @@
 const express = require("express");
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
+const bodyParser = require('body-parser');
 const handlebars = require('express-handlebars');
 const sequelize = require('./config/connection');
 const routes = require('./routes');
@@ -8,8 +9,8 @@ const routes = require('./routes');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(session({
   secret: process.env.SESSION_SECRET,
@@ -17,6 +18,7 @@ app.use(session({
   saveUninitialized: true,
   // cookie: { secure: true } - This requires HTTPS, we can put this in for future development. THEURBANSPECTACLE
 }));
+
 // So that we don't store cache
 app.use((req, res, next) => {
   res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');

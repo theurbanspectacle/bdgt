@@ -1,6 +1,5 @@
 body {
-    display: flex;
-    min-height: 100vh;
+    height: 100vh;
     flex-direction: column;
     background: #262626;
     overflow: hidden;
@@ -18,9 +17,31 @@ body {
     font-weight: 900;
   }
   
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    color: white;
+  }
+
+  .navbar-fixed {
+    min-height: 64px;
+    display: block;
+  }
+
+  .main-container {
+    max-height: calc(100vh - 134px);
+    overflow-y: auto;
+    padding-bottom: 50px;
+    flex: 1;
+  }
+
+  .main-body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
   /* start welcome animation */
-
-
   .welcome .splash {
     height: 0px;
     padding: 0px;
@@ -52,8 +73,7 @@ body {
   
   /* moveIn */
   .welcome header,
-  .welcome a.btn,
-  .btn {
+  .welcome .btn {
     opacity: 0;
     animation: moveIn 2s 3.1s ease forwards;
   }

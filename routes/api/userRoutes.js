@@ -2,64 +2,110 @@ const router = require("express").Router();
 const { json } = require("../../config/connection");
 const User = require("../../lib/User");
 
-router.post("/", async (req, res) => {
+/**
+ * POST /api/user - Create user account and set session cookie
+ * BODY:
+ * ```
+ * {
+ *   email: string,
+ *   first_name: string,
+ *   last_name: string,
+ *   password: string,
+ * }
+ * ```
+ */
+router.post("/", (req, res) => {
   console.log("Sign Up Attempt");
   console.log(req.body);
-  try {
-    const newUser = await User.create({
-      name: req.body.name,
-      email: req.body.email,
-      password: req.body.password,
-    });
+  User.create({
+    email: req.body.email,
+    first_name: req.body.first_name,
+    last_name: req.body.last_name,
+    password: req.body.password
+  }).then(newUser => {
     req.session.user = {
       id: newUser.id,
       email: newUser.email,
       password: newUser.password,
     };
-  } catch (err) {
-    res.status(500).json(err);
-  }
+
+    res.json({
+      id: newUser.id,
+      email: newUser.email,
+      first_name: newUser.first_name,
+      last_name: newUser.last_name
+    });
+  }).catch(error => {
+    console.error('Create user failed', error);
+    res.status(400).json({error});
+  });
 });
 
-router.post("/login", async (req, res) => {
+/**
+ * POST /api/user/login - Login and set session cookie
+ * BODY:
+ * ```
+ * {
+ *   email: string,
+ *   password: string,
+ * }
+ * ```
+ * 
+ * Return 401 for invalid login attempts.
+ */
+router.post("/login", (req, res) => {
   console.log("Login Attempt");
-  try {
-    const user = await User.findOne({
-      where: {
-        email: req.body.email,
-      },
-    });
 
+  User.findOne({
+    where: {
+      email: req.body.email,
+    },
+  }).then(user => {
     if (!user) {
-      res.status(400).json({ message: "User not found" });
+      res.status(401).json({ message: "User not found" });
       return;
     }
 
     const validPass = user.checkPassword(req.body.password);
 
     if (!validPass) {
-      res.status(400).json({ message: "Incorrect Password" });
+      res.status(401).json({ message: "Incorrect Password" });
       return;
     }
+
     console.log("Log In Successful");
+
     req.session.user = {
       id: user.id,
       email: user.email,
       name: user.name,
     };
-    res.json({ user, message: "You have been logged in!" });
-  } catch (err) {
-    res.status(400).json({ message: "No user found" });
-  }
+
+    res.json({
+      user: {
+        id: user.id,
+        email: user.email,
+        first_name: user.first_name,
+        last_name: user.last_name
+      },
+    });
+  }).catch(error => {
+    res.status(401).json({ message: "No user found", error });
+  });
 });
 
+/**
+ * POST /api/user/logout - Logout and destroy session cookie if exists
+ * 
+ * Returns 204 (No Content) for all calls.
+ */
 router.post("/logout", (req, res) => {
-  if (req.session.user) {
+  if (typeof req.session.destroy === 'function') {
     req.session.destroy(() => {
       res.status(204).end();
     });
   } else {
-    res.status(404).end();
+    res.status(204).end();
   }
 });
 
