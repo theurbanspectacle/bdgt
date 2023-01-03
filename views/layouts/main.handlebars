@@ -13,33 +13,34 @@
   <span id="splash-overlay" class="splash"></span>
   <span id="welcome" class="z-depth-4"></span>
 
-{{!-- Nav Bar --}}
-  <header class="navbar-fixed">
-    <nav class="row grey darken-3">
-      <div class="col s12">
-        <ul class="right">
-          <li><a href="/">Home</a></li>
-            <li><a href="/about-us">About Us</a></li>
-            <li><a href="/sign-up">Sign Up</a></li>
-            <li><a href="/bdgt">BDGT</a></li>
-        </ul>
-      </div>
-    </nav>
-  </header>
-  {{!-- End of Nav Bar --}}
+<div class="main-body">
+  {{!-- Nav Bar --}}
+    <header class="navbar-fixed">
+      <nav class="row grey darken-3">
+        <div class="col s12">
+          <ul class="right">
+            <li><a href="/">Home</a></li>
+              <li><a href="/about-us">About Us</a></li>
+              <li><a href="/sign-up">Sign Up</a></li>
+              <li><a href="/bdgt">BDGT</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    {{!-- End of Nav Bar --}}
 
-  <main class="valign-wrapper">
-    <span class="container grey-text text-lighten-1 ">
+    <div class="container grey-text text-lighten-1 main-container">
       {{{body}}}
-    </span>
-  </main>
-
-  <footer class="page-footer black">
-    <div class="footer-copyright black">
-      <div class="container">2023&copy; NERD HERD</div>
     </div>
-  </footer>
 
+    <footer class="page-footer black">
+      <div class="footer-copyright black">
+        <div class="container">2023&copy; NERD HERD</div>
+      </div>
+    </footer>
+
+</div>
+  <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="./scripts.js"></script>
 </body>
