@@ -3,23 +3,23 @@
 <div id="sign-up-form" class="row">
   <div class="row">
     <div class="input-field col s6">
-      <input id="first_name" type="text" required class="validate">
+      <input onkeyup="signUpEnter(event)" id="first_name" type="text" required class="validate">
       <label for="first_name">First Name</label>
     </div>
     <div class="input-field col s6">
-      <input id="last_name" type="text" class="validate" required>
+      <input onkeyup="signUpEnter(event)" id="last_name" type="text" class="validate" required>
       <label for="last_name">Last Name</label>
     </div>
   </div>
   <div class="row">
     <div class="input-field col s12">
-      <input id="email" type="email" class="validate" required>
+      <input onkeyup="signUpEnter(event)" id="email" type="email" class="validate" required>
       <label for="email">Email</label>
     </div>
   </div>
   <div class="row">
     <div class="input-field col s12">
-      <input id="password" type="password" class="validate" required minlength="5">
+      <input onkeyup="signUpEnter(event)" id="password" type="password" class="validate" required minlength="5">
       <label for="password">Password</label>
     </div>
   </div>
