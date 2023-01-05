@@ -1,3 +1,45 @@
-<h1 class="title grey-text text-lighten-3">Create your BDGT:</h1>
+<h1 class="title underline--magical grey-text text-lighten-3">Create your BDGT</h1>
+<li class="bdgt-listing">
+  <span>Input your monthly income</span>
+</li>
+<li class="bdgt-listing">
+  <span>Input your planned purchase</span>
+</li>
+<li class="bdgt-listing spacing">
+  <span>Generate your suggested budget to afford your purchase!</span>
+</li>
+{{! TODO: Render BDGT UI }}
 
-{{!-- TODO: Render BDGT UI --}}
+<div id="bdgt-form">
+  <div class="row">
+    <div class="input-field col s8">
+      <input
+        onkeyup="loginEnter(event)"
+        id="income"
+        type="income"
+        placeholder="Monthly Income: Ex.(2000)"
+      />
+      <label for="income">Enter your monthly income: </label>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s8">
+        <input
+          onkeyup="loginEnter(event)"
+          id="purchase"
+          type="purchase"
+          placeholder="Planned Purchase: Ex.(2000)"
+        />
+        <label for="purchase">Enter price of planned purchase: </label>
+      </div>
+    </div>
+  </div>
+  {{!
+<div style="width:300px; height:300px;">
+<canvas class="hidden" id="myChart"></canvas>
+</div>
+}}
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="/js/bdgtRender.js"></script>

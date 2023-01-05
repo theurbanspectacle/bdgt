@@ -1,6 +1,6 @@
 $(document).ready(() => {
   setTimeout(() => {
-    const splash = $('.splash');
+    const splash = $(".splash");
 
     if (splash) {
       splash.remove();
@@ -9,7 +9,7 @@ $(document).ready(() => {
 });
 
 const renderError = (errorText, errorBody) => {
-  M.toast({html: errorText});
+  M.toast({ html: errorText });
   console.error(errorText, errorBody);
 };
 
@@ -33,34 +33,40 @@ const loginEnter = (event) => {
 };
 
 const logInSubmit = () => {
-  const email = $('#log-in-form #email').val();
-  const password = $('#log-in-form #password').val();
+  const email = $("#log-in-form #email").val();
+  const password = $("#log-in-form #password").val();
 
   if (!email || !password) {
-    renderError('Form is invalid.');
+    renderError("Form is invalid.");
     return;
   }
 
-  fetch('/api/user/login', {
-    method: 'POST',
+  fetch("/api/user/login", {
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
     body: JSON.stringify({
       email,
-      password
+      password,
     }),
-  }).then(response => {
-    if (response.ok) {
-      return response.json();
-    } else {
-      return response.json().then(data => Promise.reject(data));
-    }
-  }).then(() => {
-    location.href = "/bdgt";
-  }).catch((err) => {
-    renderError(`Unable to save${err?.message ? `: ${err.message}` : ''}`, err);
-  });
+  })
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        return response.json().then((data) => Promise.reject(data));
+      }
+    })
+    .then(() => {
+      location.href = "/bdgt";
+    })
+    .catch((err) => {
+      renderError(
+        `Unable to save${err?.message ? `: ${err.message}` : ""}`,
+        err
+      );
+    });
 };
 
 const signUpEnter = (event) => {
@@ -70,40 +76,46 @@ const signUpEnter = (event) => {
 };
 
 const signUpSubmit = () => {
-  const first_name = $('#sign-up-form #first_name').val();
-  const last_name = $('#sign-up-form #last_name').val();
-  const email = $('#sign-up-form #email').val();
-  const password = $('#sign-up-form #password').val();
+  const first_name = $("#sign-up-form #first_name").val();
+  const last_name = $("#sign-up-form #last_name").val();
+  const email = $("#sign-up-form #email").val();
+  const password = $("#sign-up-form #password").val();
 
   if (!first_name || !last_name || !email || !password) {
-    renderError('Form is invalid');
+    renderError("Form is invalid");
     return;
   }
   if (password.length < 5) {
-    renderError('Password must be more than 5 characters.');
+    renderError("Password must be more than 5 characters.");
     return;
   }
 
-  fetch('/api/user', {
-    method: 'POST',
+  fetch("/api/user", {
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      first_name, 
+      first_name,
       last_name,
       email,
-      password
+      password,
     }),
-  }).then(response => {
-    if (response.ok) {
-      return response.json();
-    } else {
-      return response.json().then(data => Promise.reject(data));
-    }
-  }).then(() => {
-    location.href = "/bdgt";
-  }).catch((err) => {
-    renderError(`Unable to save${err?.message ? `: ${err.message}` : ''}`, err);
-  });
+  })
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        return response.json().then((data) => Promise.reject(data));
+      }
+    })
+    .then(() => {
+      location.href = "/bdgt";
+    })
+    .catch((err) => {
+      renderError(
+        `Unable to save${err?.message ? `: ${err.message}` : ""}`,
+        err
+      );
+    });
 };

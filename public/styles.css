@@ -1,49 +1,170 @@
 body {
-    height: 100vh;
-    flex-direction: column;
-    background: #262626;
-    overflow: hidden;
-    -webkit-font-smoothing: antialiased;
-  }
-  
-  main {
-    flex: 1 0 auto;
-  }
-  
-  h1.title,
-  .footer-copyright a {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    text-transform: uppercase;
-    font-weight: 900;
-  }
-  
-  input[type="text"],
-  input[type="email"],
-  input[type="password"] {
-    color: white;
-  }
+  height: 100vh;
+  flex-direction: column;
+  background: #262626;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
 
-  .collection .collection-item {
-    background-color: unset;
-  }
+main {
+  flex: 1 0 auto;
+}
 
-  .navbar-fixed {
-    min-height: 64px;
-    display: block;
-  }
+.underline--magical {
+  background-image: linear-gradient(120deg, #59175f 0%, #dca2f3 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 0.2em;
+  background-position: 0 88%;
+  transition: background-size 0.25s ease-in;
+}
+.underline--magical:hover {
+  background-size: 100% 88%;
+}
+.bdgt-listing {
+  font-size: 18px;
+  color: white;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+.spacing {
+  padding-bottom: 20px;
+}
 
-  .main-container {
-    max-height: calc(100vh - 134px);
-    overflow-y: auto;
-    padding-bottom: 50px;
-    flex: 1;
-  }
+h1.title {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  text-transform: uppercase;
+  font-weight: 900;
+  text-align: center;
+}
+.footer-copyright a {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  text-transform: uppercase;
+  font-weight: 900;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
 
-  .main-body {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  color: white;
+}
+
+.collection .collection-item {
+  background-color: unset;
+}
+label[for="income"] {
+  position: absolute;
+  top: -32px;
+  font-size: 35px;
+  font-weight: 700;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: #958aa6;
+}
+label[for="purchase"] {
+  position: absolute;
+  top: 30px;
+  font-size: 35px;
+  font-weight: 700;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: #958aa6;
+}
+/* Rectangle 9 */
+input::placeholder {
+  font-size: 16px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+input[type="income"] {
+  box-sizing: border-box;
+
+  position: absolute;
+  width: 80rem;
+  height: 43px;
+  left: 11px;
+  top: 408px;
+
+  background: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 10px;
+
+  /* Name */
+
+  position: absolute;
+  width: 40rem;
+  height: 2.5rem;
+  left: 10px;
+  top: 38px;
+
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 20px;
+  /* identical to box height */
+
+  color: #545151;
+}
+input::placeholder {
+  font-size: 16px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+input[type="purchase"] {
+  box-sizing: border-box;
+
+  position: absolute;
+  width: 80rem;
+  height: 43px;
+  left: 11px;
+  top: 408px;
+
+  background: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 10px;
+
+  /* Name */
+
+  position: absolute;
+  width: 40rem;
+  height: 2.5rem;
+  left: 10px;
+  top: 95px;
+
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 20px;
+  /* identical to box height */
+
+  color: #545151;
+}
+
+.navbar-fixed {
+  min-height: 64px;
+  display: block;
+}
+
+.main-container {
+  max-height: calc(100vh - 134px);
+  overflow-y: auto;
+  padding-bottom: 50px;
+  flex: 1;
+}
+
+.main-body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 
 .home-page-wrapper {
   margin-top: calc(50vh - 205px);
@@ -53,135 +174,140 @@ blockquote {
   border-color: #b39ddb;
 }
 
-  /* start welcome animation */
-  .welcome .splash {
+/* start welcome animation */
+.welcome .splash {
+  height: 0px;
+  padding: 0px;
+  border: 130em solid #262626;
+  position: fixed;
+  left: 50%;
+  top: 100%;
+  display: block;
+  box-sizing: initial;
+  overflow: hidden;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: puff 0.5s 1.8s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards,
+    borderRadius 0.2s 2.3s linear forwards;
+}
+
+.welcome #welcome {
+  background: #958aa6;
+  width: 56px;
+  height: 56px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  overflow: hidden;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  animation: init 0.5s 0.2s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards,
+    moveDown 1s 0.8s cubic-bezier(0.6, -0.28, 0.735, 0.045) forwards,
+    moveUp 1s 1.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards,
+    materia 0.5s 2.7s cubic-bezier(0.86, 0, 0.07, 1) forwards,
+    hide 2s 2.9s ease forwards;
+}
+
+/* moveIn */
+.welcome header,
+.welcome .btn {
+  opacity: 0;
+  animation: moveIn 2s 3.1s ease forwards;
+}
+
+@keyframes init {
+  0% {
+    width: 0px;
     height: 0px;
-    padding: 0px;
-    border: 130em solid #262626;
-    position: fixed;
-    left: 50%;
-    top: 100%;
-    display: block;
-    box-sizing: initial;
-    overflow: hidden;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    animation: puff 0.5s 1.8s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards, borderRadius 0.2s 2.3s linear forwards;
   }
-  
-  .welcome #welcome {
-    background: #958AA6 ;
+  100% {
     width: 56px;
     height: 56px;
-    position: absolute;
-    left: 50%;
+    margin-top: 0px;
+    opacity: 1;
+  }
+}
+
+@keyframes puff {
+  0% {
+    top: 100%;
+    height: 0px;
+    padding: 0px;
+  }
+  100% {
     top: 50%;
-    overflow: hidden;
-    opacity: 0;
-    transform: translate(-50%, -50%);
+    height: 100%;
+    padding: 0px 100%;
+  }
+}
+
+@keyframes borderRadius {
+  0% {
     border-radius: 50%;
-    animation: init 0.5s 0.2s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards, moveDown 1s 0.8s cubic-bezier(0.6, -0.28, 0.735, 0.045) forwards, moveUp 1s 1.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards, materia 0.5s 2.7s cubic-bezier(0.86, 0, 0.07, 1) forwards, hide 2s 2.9s ease forwards;
   }
-  
-  /* moveIn */
-  .welcome header,
-  .welcome .btn {
+  100% {
+    border-radius: 0px;
+  }
+}
+
+@keyframes moveDown {
+  0% {
+    top: 50%;
+  }
+  50% {
+    top: 40%;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+@keyframes moveUp {
+  0% {
+    background: #958aa6;
+    top: 100%;
+  }
+  50% {
+    top: 40%;
+  }
+  100% {
+    top: 50%;
+    background: #404040;
+  }
+}
+
+@keyframes materia {
+  0% {
+    background: #202020;
+  }
+  50% {
+    background: #232323;
+    top: 26px;
+  }
+  100% {
+    background: #262626;
+    width: 100%;
+    height: 64px;
+    border-radius: 0px;
+    top: 26px;
+  }
+}
+
+@keyframes moveIn {
+  0% {
     opacity: 0;
-    animation: moveIn 2s 3.1s ease forwards;
   }
-  
-  @keyframes init {
-    0% {
-      width: 0px;
-      height: 0px;
-    }
-    100% {
-      width: 56px;
-      height: 56px;
-      margin-top: 0px;
-      opacity: 1;
-    }
+  100% {
+    opacity: 1;
   }
-  
-  @keyframes puff {
-    0% {
-      top: 100%;
-      height: 0px;
-      padding: 0px;
-    }
-    100% {
-      top: 50%;
-      height: 100%;
-      padding: 0px 100%;
-    }
+}
+
+@keyframes hide {
+  0% {
+    opacity: 1;
   }
-  
-  @keyframes borderRadius {
-    0% {
-      border-radius: 50%;
-    }
-    100% {
-      border-radius: 0px;
-    }
+  100% {
+    opacity: 0;
   }
-  
-  @keyframes moveDown {
-    0% {
-      top: 50%;
-    }
-    50% {
-      top: 40%;
-    }
-    100% {
-      top: 100%;
-    }
-  }
-  
-  @keyframes moveUp {
-    0% {
-      background: #958AA6;
-      top: 100%;
-    }
-    50% {
-      top: 40%;
-    }
-    100% {
-      top: 50%;
-      background: #404040;
-    }
-  }
-  
-  @keyframes materia {
-    0% {
-      background: #202020;
-    }
-    50% {
-      background: #232323;
-      top: 26px;
-    }
-    100% {
-      background: #262626;
-      width: 100%;
-      height: 64px;
-      border-radius: 0px;
-      top: 26px;
-    }
-  }
-  
-  @keyframes moveIn {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-  
-  @keyframes hide {
-    0% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-    }
-  }
+}
