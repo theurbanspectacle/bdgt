@@ -25,6 +25,13 @@ const aboutUs = () => {
   location.href = "/about-us";
 };
 
+// Function to press Enter button to log in
+const loginEnter = (event) => {
+  if (event.which === 13) {
+    logInSubmit();
+  }
+};
+
 const logInSubmit = () => {
   const email = $('#log-in-form #email').val();
   const password = $('#log-in-form #password').val();
@@ -44,7 +51,6 @@ const logInSubmit = () => {
       password
     }),
   }).then(response => {
-    console.log(response);
     if (response.ok) {
       return response.json();
     } else {
@@ -55,6 +61,12 @@ const logInSubmit = () => {
   }).catch((err) => {
     renderError(`Unable to save${err?.message ? `: ${err.message}` : ''}`, err);
   });
+};
+
+const signUpEnter = (event) => {
+  if (event.which === 13) {
+    signUpSubmit();
+  }
 };
 
 const signUpSubmit = () => {

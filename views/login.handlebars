@@ -4,13 +4,13 @@
 <div id="log-in-form" class="row">
   <div class="row">
     <div class="input-field col s12">
-      <input id="email" type="email" class="validate" required>
+      <input onkeyup="loginEnter(event)" id="email" type="email" class="validate" required>
       <label for="email">Email</label>
     </div>
   </div>
   <div class="row">
     <div class="input-field col s12">
-      <input id="password" type="password" class="validate" required minlength="5">
+      <input onkeyup="loginEnter(event)" id="password" type="password" class="validate" required minlength="5">
       <label for="password">Password</label>
     </div>
   </div>
