@@ -148,6 +148,20 @@ input[type="purchase"] {
   color: #545151;
 }
 
+#dropdown {
+  display: block;
+
+  position: absolute;
+  width: 40rem;
+  height: 43px;
+  left: 330px;
+  top: 500px;
+
+  background: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 10px;
+}
+
 .navbar-fixed {
   min-height: 64px;
   display: block;

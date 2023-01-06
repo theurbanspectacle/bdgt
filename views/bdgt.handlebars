@@ -33,6 +33,12 @@
         <label for="purchase">Enter price of planned purchase: </label>
       </div>
     </div>
+
+    <select id="dropdown">
+      {{#each Cats}}
+        <option value="{{id}}">{{name}}</option>
+      {{/each}}
+    </select>
   </div>
   {{!
 <div style="width:300px; height:300px;">

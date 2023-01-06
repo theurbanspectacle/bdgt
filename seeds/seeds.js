@@ -3,9 +3,6 @@ const Category = require('../lib/category');
 const User = require('../lib/User');
 const Transaction = require('../lib/transaction');
 
-const income = [
-  'Budget', 'Bonus', 'Paycheck', 'Other', 'Interest', 'Savings', 
-];
 
 const expense = [
   'Rent & Mortgage', 'Auto & Transport', 'Gas', 'Electricity', 'Utilities', 
@@ -14,12 +11,6 @@ const expense = [
 ];
 
 sequelize.sync({force: true}).then(() => {
-  income.forEach(item => {
-    Category.create({
-      type: 'income',
-      name: item
-    });
-  });
   
   expense.forEach(item => {
     Category.create({

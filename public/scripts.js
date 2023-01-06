@@ -119,3 +119,18 @@ const signUpSubmit = () => {
       );
     });
 };
+fetch("/api/bdgt/categories", {
+  method: "GET",
+})
+  .then((response) => response.json())
+  // Process the response
+  .then((data) => {
+    const dropdown = document.querySelector("#dropdown");
+    console.log(data);
+    data.forEach((item) => {
+      const option = document.createElement("option");
+      option.value = item.value;
+      option.textContent = item.text;
+      dropdown.appendChild(option);
+    });
+  });
