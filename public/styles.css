@@ -185,3 +185,45 @@ blockquote {
       opacity: 0;
     }
   }
+
+  /* BDGT styling */
+  .bdgt-actions {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .total-chart {
+    height: 140px;
+    width: 100%;
+  }
+
+  .donut-chart-header {
+    margin-top: 64px;
+    text-align: center;
+  }
+
+  .donut-chart {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+
+  .donut-chart canvas {
+    width: 400px !important;
+    height: 400px !important;
+  }
+
+  .table-header {
+    margin-top: 64px;
+    text-align: center;
+  }
+
+  .transactions .btn {
+    width: 50px;
+    text-align: center;
+  }
+
+  table.striped>tbody>tr:nth-child(odd) {
+    background-color: rgba(19, 19, 19 ,0.5);
+  }

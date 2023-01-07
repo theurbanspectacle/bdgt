@@ -34,6 +34,19 @@ router.put("/transactions/:id", (req, res) => {
   });
 });
 
+router.delete("/transactions/:id", (req, res) => {
+  Transaction.destroy({
+    where: {
+      id: req.params.id
+    }
+  }).then (() => {
+    res.json({});
+  }).catch(error => {
+    console.error('Delete transaction failed', error);
+    res.status(400).json({error});
+  });
+});
+
 router.get("/categories", (req, res) => {
   Category.findAll().then (categories => {
     res.json(categories);
@@ -45,33 +58,14 @@ router.get("/categories", (req, res) => {
 
 router.get("/transactions", (req, res) => {
   Transaction.findAll({
+    include: [
+      Category,
+    ],
     where: {
       user_id: req.session.user.id,
     }
   }).then (transactions => {
-    const finalItems = [];
-    const promises = transactions.map(transaction => {
-      return Category.findOne({
-        where: {
-          id: transaction.category_id,
-        }
-      }).then(category => {
-        finalItems.push({
-          category_name: category?.name,
-          category_type: category?.type,
-          category_id: transaction.category_id,
-          id: transaction.id,
-          price: transaction.price,
-        });
-      });
-    });
-
-    Promise.all(promises).then(() => {
-      res.json(finalItems);
-    }).catch(error => {
-      console.error('Get transaction categories failed', error);
-      res.status(400).json({error});
-    });
+    res.json(transactions);
   }).catch(error => {
     console.error('Get transaction failed', error);
     res.status(400).json({error});
