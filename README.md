@@ -2,19 +2,26 @@
 
 ## Description
 
-- BDGT is a budgeting/financing app that allows you to see how much purchasing power you have for your next buy.
+- BDGT is a simple budgeting/financing app that allows you to easily budget your money and view it in a graph format.
 
 - This application uses:
-Handlebars.js as a template engine
-Node.js, Express.js to create a RESTful API
-MySQL and Sequelize ORM for the database
-GET and POST routes for retrieving and adding new data
-(Insert one new library package or technology here)
+- Handlebars.js as a template engine
+- Node.js, Express.js to create a RESTful API
+- MySQL and Sequelize ORM for the database
+- Full CRUD routes for handling data
+- ChartJS to display information
+- Materialize for the UI Framework
+- Session management via server side cookies
+- editorconfig for consistency in code
+- bcrypt for encrypting data to store in the database
+
+![Homepage View](/readme/HomePageView.png)
 
 ## Installation
 
 - `npm install`
 - `npm run init:database`
+- `npm run seed` (developers can use `npm run seed:develop` for creating fake data for testing)
 - Create `.env` file using the `example.env` file for reference.
 
 ## Usage
@@ -37,15 +44,6 @@ GET and POST routes for retrieving and adding new data
 [Justin Bong](https://github.com/justinhwbhang)
 
 [Genesis (Oliver) Gregorio](https://github.com/theurbanspectacle)
-
-## Badges
-
-TBD
-
-## Features
-
-If your project has a lot of features, list them here.
-TBD
 
 ## Tests
 

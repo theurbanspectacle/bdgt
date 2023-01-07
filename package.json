@@ -12,7 +12,8 @@
     "init:database": "./db/create_db.sh",
     "start": "node server.js",
     "watch": "nodemon server.js",
-    "seed": "node seeds/seeds.js"
+    "seed": "node seeds/seeds.js",
+    "seed:develop": "export DEVELOPMENT=true && node seeds/seeds.js"
   },
   "repository": {
     "type": "git",
