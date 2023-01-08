@@ -5,7 +5,6 @@ body {
   overflow: hidden;
   -webkit-font-smoothing: antialiased;
 }
-
 main {
   flex: 1 0 auto;
 }
@@ -28,6 +27,38 @@ main {
 }
 .spacing {
   padding-bottom: 20px;
+}
+.profile-container {
+  position: relative;
+  left: 700px;
+  width: 900px;
+  height: 700px;
+  top: -300px;
+  border: solid 5px;
+  border-image: linear-gradient(120deg, #59175f 0%, #dca2f3 100%) 1;
+}
+.bdgt-container{
+  position: relative;
+  left: 600px;
+  width: 200px;
+  height: 690px;
+  top: 0px;
+  border: solid 5px;
+  border-image: linear-gradient(120deg, #59175f 0%, #dca2f3 100%) 1;
+  border-top: 0;
+  border-right: 0;
+  border-bottom: 0;
+}
+.chart-container {
+  position: relative;
+  top: -530px;
+  left: 50px;
+  width: 500px;
+  height: 500px;
+}
+#myChart {
+  width: 30px;
+  height: 30px;
 }
 
 h1.title {
@@ -151,15 +182,13 @@ input[type="purchase"] {
 #dropdown {
   display: block;
 
-  position: absolute;
+  position: relative;
   width: 40rem;
   height: 43px;
-  left: 330px;
-  top: 500px;
+  left: 10px;
+  top: 110px;
 
   background: #ffffff;
-  border: 1px solid #000000;
-  border-radius: 10px;
 }
 
 .navbar-fixed {
@@ -169,7 +198,6 @@ input[type="purchase"] {
 
 .main-container {
   max-height: calc(100vh - 134px);
-  overflow-y: auto;
   padding-bottom: 50px;
   flex: 1;
 }

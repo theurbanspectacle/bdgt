@@ -74,6 +74,53 @@ const signUpEnter = (event) => {
     signUpSubmit();
   }
 };
+const bdgtEnter = (event) => {
+  if (event.which === 13) {
+    bdgtSubmit();
+  }
+};
+window.onload = () => {
+  document.getElementById("bdgt-form").addEventListener("submit", (event) => {
+    event.preventDefault();
+    bdgtSubmit();
+  });
+};
+
+const bdgtSubmit = () => {
+  const income = parseInt($("#income").val(), 10);
+  const expense = parseInt($("#purchase").val(), 10);
+  const dropdown = $("#dropdown").val();
+  console.log(dropdown, income, expense);
+
+  if (isNaN(income) || isNaN(expense)) {
+    renderError("Form is invalid");
+    return;
+  }
+  fetch("/transactions", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      income,
+      expense,
+      dropdown,
+    }),
+  })
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        return response.json().then((data) => Promise.reject(data));
+      }
+    })
+    .catch((err) => {
+      renderError(
+        `Unable to save${err?.message ? `: ${err.message}` : ""}`,
+        err
+      );
+    });
+};
 
 const signUpSubmit = () => {
   const first_name = $("#sign-up-form #first_name").val();

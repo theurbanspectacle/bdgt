@@ -8,19 +8,30 @@ router.all("/*", (req, res, next) => {
   withAuth(req, res, next, true);
 });
 
-router.post("/transactions", (req, res) => {
-  Transaction.create({
-    price: req.body.price,
-    category_id: req.body.category_id,
-    user_id: req.session.user.id,
-  })
-    .then((newTransaction) => {
-      res.json(newTransaction);
-    })
-    .catch((error) => {
-      console.error("Create transaction failed", error);
-      res.status(400).json({ error });
+router.post("/transactions", async function (req, res) {
+  // Get the data from the request body
+  const income = req.body.income;
+  const expense = req.body.expense;
+  const dropdown = req.body.dropdown;
+
+  // Validate the data
+  if (!income || !expense) {
+    res.status(400).send("Invalid data");
+    return;
+  }
+
+  // Insert the data into the database
+  try {
+    await db.Transaction.create({
+      income,
+      expense,
+      dropdown,
     });
+    res.send("Transaction inserted successfully");
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Error inserting transaction");
+  }
 });
 
 router.put("/transactions/:id", (req, res) => {
@@ -89,21 +100,5 @@ router.get("/transactions", (req, res) => {
       res.status(400).json({ error });
     });
 });
-
-// TODO: Add BDGT API ROUTES
-router.post("/purchase", (req, res) => {
-  Purchase.create({
-    price: req.body.price,
-  });
-
-  if (req.session.user) {
-    savePurchase(req.body.purchase, req.session.user.id);
-    res.send("Purchase Saved!");
-  } else {
-    res.status(401).json({ message: "Unable to save purchase" });
-    return;
-  }
-});
-router.post("/income", (req, res) => {});
 
 module.exports = router;

@@ -1,4 +1,4 @@
-const labels = ["January", "February", "March", "April", "May", "June"];
+const labels = ["category_name", "Savings", "Recreation"];
 const car = 100;
 const house = 200;
 const kids = 300;
