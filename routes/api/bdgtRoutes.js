@@ -60,10 +60,35 @@ router.get("/categories", async (req, res) => {
     console.error("Get categories failed", error);
     res.status(400).json({ error });
   }
+
+router.delete("/transactions/:id", (req, res) => {
+  Transaction.destroy({
+    where: {
+      id: req.params.id
+    }
+  }).then (() => {
+    res.json({});
+  }).catch(error => {
+    console.error('Delete transaction failed', error);
+    res.status(400).json({error});
+  });
+});
+
+router.get("/categories", (req, res) => {
+  Category.findAll().then (categories => {
+    res.json(categories);
+  }).catch(error => {
+    console.error('Get categories failed', error);
+    res.status(400).json({error});
+  });
+
 });
 
 router.get("/transactions", (req, res) => {
   Transaction.findAll({
+    include: [
+      Category,
+    ],
     where: {
       user_id: req.session.user.id,
     },
@@ -99,6 +124,14 @@ router.get("/transactions", (req, res) => {
       console.error("Get transaction failed", error);
       res.status(400).json({ error });
     });
+
+    }
+  }).then (transactions => {
+    res.json(transactions);
+  }).catch(error => {
+    console.error('Get transaction failed', error);
+    res.status(400).json({error});
+  });
 });
 
 module.exports = router;
