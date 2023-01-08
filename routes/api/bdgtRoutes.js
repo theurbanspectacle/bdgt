@@ -38,6 +38,7 @@ router.put("/transactions/:id", (req, res) => {
     });
 });
 
+
 router.get("/categories", async (req, res) => {
   try {
     const getCat = await Category.findAll();
@@ -49,10 +50,33 @@ router.get("/categories", async (req, res) => {
     console.error("Get categories failed", error);
     res.status(400).json({ error });
   }
+router.delete("/transactions/:id", (req, res) => {
+  Transaction.destroy({
+    where: {
+      id: req.params.id
+    }
+  }).then (() => {
+    res.json({});
+  }).catch(error => {
+    console.error('Delete transaction failed', error);
+    res.status(400).json({error});
+  });
+});
+
+router.get("/categories", (req, res) => {
+  Category.findAll().then (categories => {
+    res.json(categories);
+  }).catch(error => {
+    console.error('Get categories failed', error);
+    res.status(400).json({error});
+  });
 });
 
 router.get("/transactions", (req, res) => {
   Transaction.findAll({
+    include: [
+      Category,
+    ],
     where: {
       user_id: req.session.user.id,
     },
@@ -90,20 +114,6 @@ router.get("/transactions", (req, res) => {
     });
 });
 
-// TODO: Add BDGT API ROUTES
-router.post("/purchase", (req, res) => {
-  Purchase.create({
-    price: req.body.price,
-  });
 
-  if (req.session.user) {
-    savePurchase(req.body.purchase, req.session.user.id);
-    res.send("Purchase Saved!");
-  } else {
-    res.status(401).json({ message: "Unable to save purchase" });
-    return;
-  }
-});
-router.post("/income", (req, res) => {});
 
 module.exports = router;
